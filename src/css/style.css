@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Cousine&display=swap');
+
+body {
+    font-family: 'Cousine', monospace;
+    min-width: 200px;
+    max-height: 2px;
+    margin: 0px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    
+}
+
+.dropbtn {
+    padding: 16px;
+    font-size: 16px;
+    background-color: #29B5E8;
+    color: white;
+}
+
+.dropdown-content {
+    color: white;
+    background-color: #29B5E8;
+    display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    max-height: 115px;
+    overflow-y:scroll;
+    
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a:hover {
+
+    background-color: #2ca6d3;
+
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #2ca6d3; 
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: #76d9fd; 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a8e8ff; 
+  }

@@ -1,0 +1,38 @@
+{
+    "name": "SnowTheme",
+    "description": "Themes for Snowflake WebUI",
+    "version": "0.1.0",
+    "manifest_version": 3,
+    "permissions": [
+        "storage",
+        "tabs"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://app.snowflake.com/*"
+            ],
+            "js": [
+                "js/inject.js"
+            ],
+            "css" : [
+                "assets/themes/styles.css"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "action": {
+        "default_popup": "html/popup.html",
+        "default_title": "Title",
+        "default_icon": {
+            "16": "assets/images/16.png",
+            "32": "assets/images/32.png",
+            "128": "assets/images/128.png"
+        }
+    },
+    "icons": {
+        "16": "assets/images/16.png",
+        "32": "assets/images/32.png",
+        "128": "assets/images/128.png"
+    }
+}
