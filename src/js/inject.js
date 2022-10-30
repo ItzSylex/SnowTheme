@@ -5,7 +5,7 @@ function loadCurrentTheme() {
 
   chrome.storage.local.get(['currentTheme']).then(function (data) {
     if (data.currentTheme in localStorage) {
-      document.getElementsByTagName('body').classList.add(data.currentTheme)
+      document.body.classList.add(data.currentTheme)
     }
   })
 }
@@ -14,18 +14,20 @@ function loadCurrentTheme() {
 chrome.runtime.onMessage.addListener(function (request) {
 
   if (Object.keys(request)[0] == 'SnowThemeMessage') {
-    console.log(request.SnowThemeMessage)
 
-    var classList = document.getElementsByTagName('body').split(' ')
+    var classList = document.body.className.split(' ')
 
-    if ('SnowTheme:' in classList) {
-      var newClass = classList.splice(classList.indexOf('SnowTheme'), 1) // remove current class
-      document.getElementsByTagName('body').className = newClass + ` ${request.SnowThemeMessage}`; // add class with new value
+    for (let index = 0; index < classList.length; index++) {
+      const NameClass = classList[index];
 
-      // need to overwrite current value in local storage
-    
-
+      if (NameClass.includes('SnowTheme:')) {
+        classList.splice(index, 1)
+        document.body.className = classList.join(' ') + ` ${request.SnowThemeMessage}`; // add class with new value
+        // chrome.storage.local.setItem('currentTheme', request.SnowThemeMessage)
+      }
     }
+    document.body.className = classList.join(' ') + ` ${request.SnowThemeMessage}`;
+
   }
 }
 );
