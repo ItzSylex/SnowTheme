@@ -5,7 +5,7 @@ document.getElementById('dropdown-content').addEventListener('click', (event) =>
         for (tab of tabs){
 
             if (tab.url.includes("app.snowflake.com")) {
-                chrome.tabs.sendMessage(tab.id, event.target.id)
+                chrome.tabs.sendMessage(tab.id, {"SnowThemeMessage" : event.target.id})
             }
         }
     });
